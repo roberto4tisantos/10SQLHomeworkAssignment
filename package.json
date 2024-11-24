@@ -1,5 +1,14 @@
 {
+  "name": "sql",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },  
   "dependencies": {
+    "console-table-printer": "^2.12.1",
+    "inquirer": "^12.1.0",
+    "node": "^20.18.1",
     "pg": "^8.13.1"
   }
 }

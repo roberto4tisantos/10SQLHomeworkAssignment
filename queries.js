@@ -1,4 +1,4 @@
-const pool = require('./db');
+const pool = require('./db').default;
 
 // View all departments
 async function viewDepartments() {
@@ -12,6 +12,12 @@ async function viewRoles() {
     return result.rows;
 }
 
+// View all Employees
+async function viewEmployees() {
+    const result = await pool.query('SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, employee.manager_id, role.id, role.title, role.salary, role.department_id, department.name FROM employee JOIN role ON role.id = employee.role_id JOIN department ON employee.role_id = role.id');
+    return result.rows;
+}
+
 // Add a new employee
 async function addEmployee(firstName, lastName, roleId, managerId) {
     const result = await pool.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4) RETURNING *', [firstName, lastName, roleId, managerId]);
@@ -21,6 +27,12 @@ async function addEmployee(firstName, lastName, roleId, managerId) {
 // Add a new department
 async function addDepartment(name) {
     const result = await pool.query('INSERT INTO department (name) VALUES ($1) RETURNING *', [name]);
+    return result.rows[0];
+}
+
+// Add a new Role
+async function addRole(title, salary, depto) {
+    const result = await pool.query('INSERT INTO role (title, salary, depto) VALUES ($1) RETURNING *', [title, salary, department_id]);
     return result.rows[0];
 }
 
