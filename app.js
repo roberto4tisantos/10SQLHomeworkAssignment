@@ -1,19 +1,5 @@
 import inquirer from "inquirer";
-// const inquirer = require('inquirer');
 import queries from "./queries.js";
-// import { Pool } from "pg";
-
-// const { 
-//     viewDepartments, 
-//     viewRoles, 
-//     viewEmployees, 
-//     addDepartment, 
-//     addRole, 
-//     addEmployee, 
-//     updateEmployeeRole 
-// } = require("./queries.js");
-
-// const { view } = require('console-table-printer');
 
 // Main function to handle user interactions
 async function start() {
@@ -126,7 +112,7 @@ async function start() {
             start();
             break;
         case 'Exit':
-            console.log('Goodbye!');
+            console.log('End');
             process.exit();
             break;
         default:

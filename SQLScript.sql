@@ -1,10 +1,10 @@
 -- Create the database (optional, if you want to specify the database)
 SELECT 'Creating Database...';
-DROP DATABASE IF EXISTS uoftsql;
-CREATE DATABASE uoftsql;
+DROP DATABASE IF EXISTS uofsql;
+CREATE DATABASE uofsql;
 
 -- Connect to the database (if the database is already created)
-\c uoftsql;
+\c uofsql;
 
 -- See database in use --
 SELECT current_database();
